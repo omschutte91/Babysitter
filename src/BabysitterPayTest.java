@@ -6,11 +6,14 @@ import org.junit.jupiter.api.Test;
 
 class BabysitterPayTest {
 
-	@Test
+	/*@Test
 	void testMain() {
-
+	
 	}
-
+	don't quite know how best to test with jUnit
+	all the methods/functions called are tested, so I ran through it manually to ensure do/while loops work	
+	 */
+	
 	@Test
 	void testCalculatePay() {
 		//test all hours as 0
@@ -54,6 +57,22 @@ class BabysitterPayTest {
 
 	@Test
 	void testConvertTime() {
+		//looped version - check all inputs
+		int i = -1;
+		for(i = -1; i < 12; i++) {
+			if(i <= 0) {
+				assertEquals(-1, BabysitterPay.ConvertTime(i));
+			}
+			else if (i < 5){
+				assertEquals(i+7, BabysitterPay.ConvertTime(i));
+			}
+			else {
+				assertEquals(i-5, BabysitterPay.ConvertTime(i));
+			}
+		}
+		
+		/*
+		//simple version - spot checks
 		//test negative input
 		assertEquals(-1, BabysitterPay.ConvertTime(-3));
 		//test 0 input
@@ -62,6 +81,7 @@ class BabysitterPayTest {
 		assertEquals(0, BabysitterPay.ConvertTime(5));
 		//test after midnight
 		assertEquals(11, BabysitterPay.ConvertTime(4));
+		*/
 	}
 
 	@Test
